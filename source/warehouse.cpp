@@ -2,9 +2,9 @@
 #include <utility>
 
 Warehouse::Warehouse(const std::string& name, std::pair<int, int> size) :
-    name_(name), field_(Field<WarehouseCell*>(size)) {}
+    name_(name), field_(Field(size)) {}
 
-Warehouse::Warehouse(const Field<WarehouseCell*>& field, const std::string& name) : 
+Warehouse::Warehouse(const Field& field, const std::string& name) : 
     name_(name), field_(field) {}
 
 
@@ -24,30 +24,30 @@ std::pair<int, int> Warehouse::getSize() const {
 }
 
 
-WarehouseCell* Warehouse::operator[](std::pair<size_t, size_t> pos) {
+Warehouse::Cell Warehouse::operator[](std::pair<size_t, size_t> pos) {
     return field_[pos];
 }
-const WarehouseCell* Warehouse::operator[](std::pair<size_t, size_t> pos) const {
+const Warehouse::Cell Warehouse::operator[](std::pair<size_t, size_t> pos) const {
     return field_[pos];
 }
 
-std::vector<WarehouseCell*> Warehouse::operator[](size_t row) {
+Warehouse::Field::Row Warehouse::operator[](size_t row) {
     return field_[row];
 }
-const std::vector<WarehouseCell*> Warehouse::operator[](size_t row) const {
+const Warehouse::Field::Row Warehouse::operator[](size_t row) const {
     return field_[row];
 }
 
-WarehouseCell* Warehouse::at(std::pair<size_t, size_t> pos) {
+Warehouse::Cell Warehouse::at(std::pair<size_t, size_t> pos) {
     return field_[pos];
 }
-const WarehouseCell* Warehouse::at(std::pair<size_t, size_t> pos) const {
+const Warehouse::Cell Warehouse::at(std::pair<size_t, size_t> pos) const {
     return field_[pos];
 }
 
-WarehouseCell* Warehouse::at(size_t row, size_t col) {
+Warehouse::Cell Warehouse::at(size_t row, size_t col) {
     return field_.at(row, col);
 }
-const WarehouseCell* Warehouse::at(size_t row, size_t col) const {
+const Warehouse::Cell Warehouse::at(size_t row, size_t col) const {
     return field_.at(row, col);
 }
