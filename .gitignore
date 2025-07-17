@@ -42,3 +42,4 @@ coverage/
 
 
 CMakePresets.json
+.cache
