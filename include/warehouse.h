@@ -16,7 +16,7 @@ public:
     std::pair<int, int> getSize() const;
 
 private:
-    Warehouse(const Field<WarehouseCell*>& field);
+    Warehouse(const Field<WarehouseCell*>& field, const std::string& name = "");
     
     std::string name_;
     Field<WarehouseCell*> field_;
