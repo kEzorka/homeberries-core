@@ -1,7 +1,7 @@
 #include "../include/warehouse.h"
 #include <utility>
 
-Warehouse::Warehouse(const std::string& name, std::pair<int, int> size) :
+Warehouse::Warehouse(const std::string& name, std::pair<size_t, size_t> size) :
     name_(name), field_(Field(size)) {}
 
 Warehouse::Warehouse(const Field& field, const std::string& name) : 
@@ -11,7 +11,7 @@ Warehouse::Warehouse(const Field& field, const std::string& name) :
 void Warehouse::setName(const std::string& name) {
     name_ = name;
 }
-void Warehouse::setSize(std::pair<int, int> size) {
+void Warehouse::setSize(std::pair<size_t, size_t> size) {
     field_.resize(size);
 }
 

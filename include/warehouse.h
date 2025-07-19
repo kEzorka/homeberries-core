@@ -10,10 +10,11 @@ private:
 
 public:
     Warehouse() = default;
-    explicit Warehouse(const std::string& name, std::pair<int, int> fieldSize = {0,0});
+    explicit Warehouse(const std::string& name, std::pair<size_t, size_t> fieldSize = {0,0});
+    explicit Warehouse(const Field& field, const std::string& name = "");
 
     void setName(const std::string& name);
-    void setSize(std::pair<int, int> size);
+    void setSize(std::pair<size_t, size_t> size);
 
     std::string getName() const;
     std::pair<int, int> getSize() const;
@@ -28,8 +29,6 @@ public:
     const Cell at(size_t row, size_t col) const;
 
 private:
-    Warehouse(const Field& field, const std::string& name = "");
-    
     std::string name_;
     Field field_;
 
