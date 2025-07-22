@@ -15,10 +15,11 @@ size_t Item::getAccessLevel() const {
     return accessLevel_;
 }
 
-void Item::removeStoringCell(FastVec<WarehouseCell*>::Node*& node) {
+void Item::removeStoringCell(VecNode& node) {
     storingCells_.erase(node);
 }
 
-void Item::addStoringCell(WarehouseCell *const &storingCell) {
-    storingCells_.push_back(storingCell);
+std::pair<Item*, Item::VecNode>
+Item::addStoringCell(WarehouseCell*const &storingCell) {
+    return { this, storingCells_.push_back(storingCell) };
 }

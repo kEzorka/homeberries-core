@@ -36,7 +36,7 @@ public:
         std::swap(head, swapVec.head);
         std::swap(tail, swapVec.tail);
     }
-    std::pair<T, Node*> push_back(const T& value) {
+    Node* push_back(const T& value) {
         auto newNode = std::make_unique<Node>(value, this, tail);
         if (head == nullptr) {
             head = std::move(newNode);
@@ -45,7 +45,7 @@ public:
             tail->next = std::move(newNode);
             tail = tail->next.get();
         }
-        return { value, tail };
+        return tail;
     }
     void pop_back() {
         if (tail == nullptr) throw std::out_of_range("cannot erase element from empty container");
