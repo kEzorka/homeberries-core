@@ -50,7 +50,15 @@ public:
         if (tail == nullptr) throw std::out_of_range("cannot erase element from empty container");
         erase(tail);
     }
-    void erase(Node* node) {
+    void clear() noexcept {
+        while (head != nullptr) {
+            Node* prev = tail->prev;
+            if (prev) prev->next.reset();
+            else head.reset();
+            tail = prev;
+        }
+    }
+    void erase(Node*& node) {
         if (node == nullptr) throw std::invalid_argument("cannot delete nullptr node");
         if (node->owner != this) throw std::invalid_argument("the node not in that container");
 
@@ -59,8 +67,12 @@ public:
 
         if (node->prev != nullptr) node->prev->next = std::move(node->next);
         else head = std::move(node->next);
+        
+        node = nullptr;
     }
-    ~FastVec() = default;
+    ~FastVec() noexcept {
+        clear();
+    }
 
 private:
     std::unique_ptr<Node> head;
