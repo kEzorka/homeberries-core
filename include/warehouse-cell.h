@@ -1,5 +1,8 @@
 #pragma once
 #include <string>
+#include "fast-vec.h"
+
+class Item;
 
 class WarehouseCell {
 public:
@@ -7,5 +10,6 @@ public:
     virtual ~WarehouseCell() = default;
     
 private:
+    FastVec<Item*> cellItems_; 
 
 };
