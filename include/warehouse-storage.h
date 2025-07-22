@@ -1,15 +1,16 @@
 #pragma once
 #include <vector>
+#include "fast-vec.h"
 #include "warehouse-cell.h"
 
-class Shelf : public WarehouseCell {
+class Storage : public WarehouseCell {
 public:
-    Shelf();
-    Shelf(const Shelf&) = default;
-    Shelf& operator=(const Shelf&) = default;
-    Shelf(Shelf&&) = default;
-    Shelf& operator=(Shelf&&) = default;
-    ~Shelf() = default;
+    Storage();
+    Storage(const Storage&) = default;
+    Storage& operator=(const Storage&) = default;
+    Storage(Storage&&) = default;
+    Storage& operator=(Storage&&) = default;
+    ~Storage() = default;
     virtual std::string getType() const override final;
     void addLevel(const size_t& capacity = 0);
     void removeLevel();
