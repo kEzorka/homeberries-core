@@ -14,3 +14,11 @@ float Item::getSpace() const {
 size_t Item::getAccessLevel() const {
     return accessLevel_;
 }
+
+void Item::removeStoringCell(FastVec<WarehouseCell*>::Node*& node) {
+    storingCells_.erase(node);
+}
+
+void Item::addStoringCell(WarehouseCell *const &storingCell) {
+    storingCells_.push_back(storingCell);
+}

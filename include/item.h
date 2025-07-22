@@ -1,4 +1,6 @@
 #pragma once
+#include "fast-vec.h"
+#include "warehouse-cell.h"
 #include <string>
 
 class Item {
@@ -8,10 +10,14 @@ public:
     std::string getName() const;
     float getSpace() const;
     size_t getAccessLevel() const;
+    void removeStoringCell(FastVec<WarehouseCell*>::Node*& node);
+    void addStoringCell(WarehouseCell *const &storingCell);
 
 private:
     std::string name_;
     float space_;
     size_t accessLevel_;
+
+    FastVec<WarehouseCell*> storingCells_;
 
 };
