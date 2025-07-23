@@ -9,10 +9,10 @@ public:
     public:
         friend class FastVec<T>;
         ~Node() = default;
-    private:
         Node() = default;
         Node(const T& value, FastVec<T>* owner, Node* p = nullptr) : 
         value_(value), owner_(owner), prev(p), next(nullptr) {}
+    private:
         T value_;
         std::unique_ptr<Node> next;
         Node* prev;
@@ -61,7 +61,7 @@ public:
     }
     void erase(Node*& node) {
         if (node == nullptr) throw std::invalid_argument("cannot delete nullptr node");
-        if (node->owner != this) throw std::invalid_argument("the node not in that container");
+        if (node->owner_ != this) throw std::invalid_argument("the node not in that container");
 
         if (node->next != nullptr) node->next->prev = node->prev;
         else tail = node->prev;
