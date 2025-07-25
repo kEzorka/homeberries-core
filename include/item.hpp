@@ -1,6 +1,6 @@
 #pragma once
-#include "fast-vec.h"
-#include "warehouse-cell.h"
+#include <fast-vec.hpp>
+#include <warehouse-cell.hpp>
 #include <string>
 
 class Item {
@@ -18,6 +18,7 @@ private:
     std::string name_;
     float space_;
     size_t accessLevel_;
+    size_t arrivalDay_;
 
     FastVec<WarehouseCell*> storingCells_;
 

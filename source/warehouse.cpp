@@ -1,4 +1,4 @@
-#include "../include/warehouse.h"
+#include <warehouse.hpp>
 #include <utility>
 
 Warehouse::Warehouse(const std::string& name, std::pair<size_t, size_t> size) :

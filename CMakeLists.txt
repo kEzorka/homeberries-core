@@ -1,29 +1,34 @@
-cmake_minimum_required(VERSION 3.10.0)
-project(homeberries-core)
+cmake_minimum_required(VERSION 3.15)
+project(homeberries-core VERSION 1.0 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g")
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-file(GLOB_RECURSE SOURCES "${PROJECT_SOURCE_DIR}/source/*.cpp")
-file(GLOB_RECURSE INCLUDES "${PROJECT_SOURCE_DIR}/include/*.h")
+find_package(Boost REQUIRED COMPONENTS locale date_time)
+if(NOT Boost_FOUND)
+  message(FATAL_ERROR "Boost.Locale or Boost.Date_Time not found")
+endif()
 
-add_library(homeberries-core STATIC
-    ${SOURCES}
-    ${INCLUDES}
+file(GLOB_RECURSE HB_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/source/*.cpp")
+add_library(homeberries-core-lib STATIC ${HB_SOURCES})
+
+target_include_directories(homeberries-core-lib
+  PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>
 )
 
-target_include_directories(homeberries-core
-    PUBLIC
-      $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-      $<INSTALL_INTERFACE:include>
+target_link_libraries(homeberries-core-lib
+  PUBLIC
+    Boost::locale
+    Boost::date_time
 )
 
-set(SOURCE_FILES
-    ${SOURCES}
-    ${INCLUDES}
-    main.cpp
+target_compile_options(homeberries-core-lib
+  PRIVATE
+    $<$<CONFIG:Debug>:-g>
 )
 
-add_executable(homeberries-core-exec ${SOURCE_FILES})
+add_executable(homeberries-core main.cpp)
+target_link_libraries(homeberries-core PRIVATE homeberries-core-lib)

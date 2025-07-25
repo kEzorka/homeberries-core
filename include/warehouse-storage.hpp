@@ -1,6 +1,6 @@
 #pragma once
 #include <vector>
-#include "warehouse-cell.h"
+#include <warehouse-cell.hpp>
 
 class Storage : public WarehouseCell {
 public:

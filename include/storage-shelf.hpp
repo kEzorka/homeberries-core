@@ -1,6 +1,6 @@
 #pragma once
-#include "fast-vec.h"
-#include "warehouse-storage.h"
+#include <fast-vec.hpp>
+#include <warehouse-storage.hpp>
 
 class Storage::Shelf {
     using VecNode = FastVec<WarehouseCell*>::Node*;

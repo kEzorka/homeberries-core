@@ -14,9 +14,9 @@ public:
         value_(value), owner_(owner), prev(p), next(nullptr) {}
     private:
         T value_;
-        std::unique_ptr<Node> next;
-        Node* prev;
-        const FastVec<T>* const owner_;
+        std::unique_ptr<Node> next = nullptr;
+        Node* prev = nullptr;
+        const FastVec<T>* const owner_ = nullptr;
     };
 
 public:
@@ -76,7 +76,7 @@ public:
     }
 
 private:
-    std::unique_ptr<Node> head;
-    Node* tail;
+    std::unique_ptr<Node> head = nullptr;
+    Node* tail = nullptr;
 
 };

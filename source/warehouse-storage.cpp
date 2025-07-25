@@ -1,5 +1,5 @@
-#include "../include/storage-shelf.h"
-#include "../include/item.h"
+#include <storage-shelf.hpp>
+#include <item.hpp>
 #include <stdexcept>
 
 Storage::Storage() : 

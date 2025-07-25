@@ -1,6 +1,6 @@
 #pragma once
-#include "warehouse-cell.h"
-#include "matrix.h"
+#include <warehouse-cell.hpp>
+#include <matrix.hpp>
 #include <memory>
 
 class Warehouse {
