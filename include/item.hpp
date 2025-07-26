@@ -1,7 +1,9 @@
 #pragma once
+#include <boost/date_time/gregorian/greg_date.hpp>
 #include <fast-vec.hpp>
 #include <warehouse-cell.hpp>
 #include <string>
+using namespace boost;
 
 class Item {
     using VecNode = FastVec<WarehouseCell*>::Node*;
@@ -18,7 +20,7 @@ private:
     std::string name_;
     float space_;
     size_t accessLevel_;
-    size_t arrivalDay_;
+    gregorian::date arrivalDay_;
 
     FastVec<WarehouseCell*> storingCells_;
 

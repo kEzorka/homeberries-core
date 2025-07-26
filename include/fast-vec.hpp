@@ -4,7 +4,7 @@
 
 template<typename T>
 class FastVec {
-public: 
+public:
     class Node {
     public:
         friend class FastVec<T>;
