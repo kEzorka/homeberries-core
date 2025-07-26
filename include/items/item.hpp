@@ -1,9 +1,10 @@
 #pragma once
 #include <boost/date_time/gregorian/greg_date.hpp>
-#include <fast-vec.hpp>
-#include <warehouse-cell.hpp>
-#include <string>
 using namespace boost;
+#include <string>
+#include <fast-vec.hpp>
+
+#include "cell-objects/warehouse-cell.hpp"
 
 class Item {
     using VecNode = FastVec<WarehouseCell*>::Node*;

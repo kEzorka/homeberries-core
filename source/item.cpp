@@ -1,4 +1,4 @@
-#include <item.hpp>
+#include "items/item.hpp"
 
 Item::Item(const std::string& name, float space, size_t accessLevel) :
     name_(name), space_(space), accessLevel_(accessLevel) {}

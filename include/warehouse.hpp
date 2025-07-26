@@ -1,7 +1,9 @@
 #pragma once
-#include <warehouse-cell.hpp>
-#include <matrix.hpp>
+#include <cstddef>
 #include <memory>
+#include <matrix.hpp>
+
+#include "cell-objects/warehouse-cell.hpp"
 
 class Warehouse {
 private:

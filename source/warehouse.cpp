@@ -1,5 +1,5 @@
-#include <warehouse.hpp>
 #include <utility>
+#include "warehouse.hpp"
 
 Warehouse::Warehouse(const std::string& name, std::pair<size_t, size_t> size) :
     name_(name), field_(Field(size)) {}

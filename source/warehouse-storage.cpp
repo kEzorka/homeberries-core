@@ -1,6 +1,7 @@
-#include <storage-shelf.hpp>
-#include <item.hpp>
 #include <stdexcept>
+
+#include "cell-objects/storage/storage-shelf.hpp"
+#include "items/item.hpp"
 
 Storage::Storage() : 
     levelCapacity_(1) {}

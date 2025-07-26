@@ -17,6 +17,8 @@ target_include_directories(homeberries-core-lib
   PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/containers>
+    $<INSTALL_INTERFACE:conteiners>
 )
 
 target_link_libraries(homeberries-core-lib
