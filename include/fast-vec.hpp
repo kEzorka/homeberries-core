@@ -12,8 +12,8 @@ public:
         Node() = default;
         Node(const T& value, FastVec<T>* owner, Node* p = nullptr) : 
         value_(value), owner_(owner), prev(p), next(nullptr) {}
-    private:
         T value_;
+    private:
         std::unique_ptr<Node> next = nullptr;
         Node* prev = nullptr;
         const FastVec<T>* const owner_ = nullptr;
