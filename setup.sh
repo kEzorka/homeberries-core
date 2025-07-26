@@ -1,4 +1,5 @@
-# chmod +x setup.sh (write this to terminal)
+# chmod +x setup.sh
+# (write this to the terminal)
 install_apt() {
   echo "==> Using apt: updating and installing clang, boost, cmake"
   sudo apt update
