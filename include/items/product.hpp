@@ -6,6 +6,6 @@ public:
 
 private:
     /// @brief count of days
-    gregorian::date_duration expirationDate;
+    date_duration expirationDate;
     
 };
