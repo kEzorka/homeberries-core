@@ -101,13 +101,11 @@ const T& Matrix<T>::at(size_t row, size_t col) const {
 
 template<typename T>
 void Matrix<T>::checkBounds(size_t row) const {
-    if (row >= field_.size()) {
+    if (row >= field_.size())
         throw std::out_of_range("position out of field");
-    }
 }
 template<typename T>
 void Matrix<T>::checkBounds(std::pair<size_t, size_t> pos) const {
-    if (pos.first >= field_.size() || pos.second >= field_[0].size()) {
+    if (pos.first >= field_.size() || pos.second >= field_[0].size())
         throw std::out_of_range("position out of field");
-    }
 }

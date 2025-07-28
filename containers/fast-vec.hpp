@@ -60,8 +60,10 @@ public:
         }
     }
     void erase(Node*& node) {
-        if (node == nullptr) throw std::invalid_argument("cannot delete nullptr node");
-        if (node->owner_ != this) throw std::invalid_argument("the node not in that container");
+        if (node == nullptr) 
+            throw std::invalid_argument("cannot delete nullptr node");
+        if (node->owner_ != this) 
+            throw std::invalid_argument("the node not in that container");
 
         if (node->next != nullptr) node->next->prev = node->prev;
         else tail = node->prev;

@@ -15,7 +15,8 @@ void Storage::addShelf() noexcept {
 }
 
 void Storage::removeShelf() {
-    if (levelCapacity_.empty()) throw std::logic_error("the shelf does not have any shelves");
+    if (levelCapacity_.empty()) 
+        throw std::logic_error("the shelf does not have any shelves");
     delete shelves_.back();
     shelves_.pop_back();
 }
@@ -47,5 +48,5 @@ void Storage::Shelf::setItem(std::pair<Item*, VecNode> newItem) noexcept {
 
 void Storage::checkOutOfRange(size_t pos) {
     if (pos >= shelves_.size()) 
-    throw std::out_of_range("shelf subscript out of range");
+        throw std::out_of_range("shelf subscript out of range");
 }
